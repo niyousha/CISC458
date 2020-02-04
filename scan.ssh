@@ -184,9 +184,19 @@ Scan :
             | '%':
                 .pPercent
             | '&':
-                .pAmpersand
+                [
+                    | '&':
+                        .pAmpersandAmpersand
+                    | *:
+                        .pAmpersand
+                ]
             | '|':
-                .pBar
+                [
+                    | '|':
+                        .pBarBar
+                    | *:
+                        .pBar
+                ]
             | '!':
                 .pExclamation
             | '_':
@@ -209,13 +219,30 @@ Scan :
                     | *:
                 ]
             | '=':
-                .pEquals
+                [
+                    | '=':
+                        .pEqualsEquals
+                    | '>':
+                        .pEqualsGreater
+                    | *:
+                        .pEquals
+                ]
             | '+':
-                .pPlus
+                [
+                    | '=':
+                        .pPlusEquals
+                    | *:
+                        .pPlus
+                ]
             | lQuote:
                 @StringLiteral
             | '-':
-                .pMinus
+                [
+                    | '=':
+                        .pMinusEquals
+                    | *:
+                        .pMinus
+                ]
             | '.':
                 [
                     | '.':
