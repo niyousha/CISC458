@@ -108,6 +108,8 @@ Output :
         pRightParen
         pLeftBracket
         pRightBracket
+        pLeftBrace
+        pRightBrace
         pQuestionMark
         pSlash
         pPercent
@@ -116,6 +118,13 @@ Output :
         pExclamation
         pUnderscore
         pDotDot
+        pAmpersandAmpersand
+        pBarBar
+        pExclamationExclamation
+        pEqualsEquals
+        pEqualsGreater
+        pPlusEquals
+        pMinusEquals
         lastSyntaxToken = pDotDot;
 
 Error :
